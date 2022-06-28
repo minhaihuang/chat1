@@ -56,7 +56,11 @@ Page({
       signature: "b002b824688dd8593a6079e11d8c5e8734fbcb39a6d5906eb347bfbcad79c617",
       nonceStr: "8AP6DT9ybtniUJfb",
       timeStamp: 1559129714,
-      groupId: "1559129713_672975982"
+      groupId: "1559129713_672975982",
+      muteConfig: {
+        muteMicrophone: true,
+        muteEarphone: true
+      }
     })
   }
 })
