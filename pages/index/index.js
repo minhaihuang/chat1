@@ -60,6 +60,12 @@ Page({
       muteConfig: {
         muteMicrophone: true,
         muteEarphone: true
+      },
+      success: function(res){
+        console.log(res)
+      },
+      fail: function(res){
+        console.log(res)
       }
     })
   }
