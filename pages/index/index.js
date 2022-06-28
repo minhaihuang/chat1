@@ -58,13 +58,16 @@ Page({
       timeStamp: 1559129714,
       groupId: "1559129713_672975982",
       muteConfig: {
-        muteMicrophone: true,
-        muteEarphone: true
+        muteMicrophone: 0,
+        muteEarphone: 0
       },
       success: function(res){
         console.log(res)
       },
       fail: function(res){
+        console.log(res)
+      },
+      complete: function(res){
         console.log(res)
       }
     })
