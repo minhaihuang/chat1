@@ -7,6 +7,8 @@
     </block>
 
     <button type="primary" bindtap="inRoom"> 开始匹配 </button>
+    <br/>
+     <button type="primary" bindtap="exitRoom"> 离开房间 </button>
   </view>
 
   <view class="usermotto">
