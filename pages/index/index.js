@@ -1,3 +1,4 @@
+
 //index.js
 //获取应用实例
 const app = getApp()
@@ -52,11 +53,29 @@ Page({
     })
   },
   inRoom: function () {
+    // appId
+    const appId = "1112220200"
+    // 获取sessionKey
+    const sessionKey = qq.getStorageSync("sessionKey")
+    console.log("sessionKey为："+sessionKey)
+    // 从后端获取房间号
+    const groupId = "1559129713_672975981"
+    // 随机数
+    const nonceStr = "8AP6DT9ybtniUJfb"
+    // 获取时间戳
+    var timeStamp = Date.parse(new Date());
+    timeStamp = timeStamp / 1000;
+    console.log("当前时间戳为：" + timeStamp);
+    // 签名
+    let str = [appId, groupId, nonceStr, timeStamp].sort().join('')
+    console.log(str)
+    const CryptoJS = require('../../utils/CryptoJS.js')
+    let signature = CryptoJS.HmacSHA256('1559129713_67297598215591297148AP6DT9ybtniUJfbwx20afc706a711eefc', sessionKey).toString()
     qq.joinVoIPChat({
-      signature: "b002b824688dd8593a6079e11d8c5e8734fbcb39a6d5906eb347bfbcad79c617",
-      nonceStr: "8AP6DT9ybtniUJfb",
-      timeStamp: 1559129714,
-      groupId: "1559129713_672975982",
+      signature: signature,
+      nonceStr: nonceStr,
+      timeStamp: timeStamp,
+      groupId: groupId,
       muteConfig: {
         muteMicrophone: 0,
         muteEarphone: 0
