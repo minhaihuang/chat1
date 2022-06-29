@@ -57,7 +57,7 @@ Page({
     const appId = "1112220200"
     // 获取sessionKey
     const sessionKey = qq.getStorageSync("sessionKey")
-    console.log("sessionKey为："+sessionKey)
+    console.log("sessionKey为："+ sessionKey)
     // 从后端获取房间号
     const groupId = "1559129713_672975981"
     // 随机数

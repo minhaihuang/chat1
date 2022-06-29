@@ -17,15 +17,16 @@ App({
         console.log(res)
         console.log(res.code)
         qq.request({
-          url: 'http://localhost:8080/login/get?code='+ res.code, // 仅为示例，并非真实的接口地址
+          url: 'https://ed1d-129-227-149-221.ap.ngrok.io/login/get?code='+ res.code, // 仅为示例，并非真实的接口地址
           header: {
             'content-type': 'application/json' // 默认值
           },
           success(res) {
+
             console.log(res.data)
             try {
-              qq.setStorageSync('sessionKey', res.session_key)
-              qq.setStorageSync('openId', res.openid)
+              qq.setStorageSync('sessionKey', res.data.session_key)
+              qq.setStorageSync('openId', res.data.openid)
             } catch (e) { 
               console.log(e)
             }
