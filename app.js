@@ -17,7 +17,7 @@ App({
         console.log(res)
         console.log(res.code)
         qq.request({
-          url: 'https://ed1d-129-227-149-221.ap.ngrok.io/login/get?code='+ res.code, // 仅为示例，并非真实的接口地址
+          url: 'http://10.194.132.51:8080/login/get?code='+ res.code, // 仅为示例，并非真实的接口地址
           header: {
             'content-type': 'application/json' // 默认值
           },
