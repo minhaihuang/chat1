@@ -1,23 +1,44 @@
-<view class="container">
-  <view class="userinfo">
+<view >
+  <view>
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <!-- <text class="userinfo-nickname">{{userInfo.nickName}}</text> -->
     </block>
+    <button  class="userinfo" type="primary" size="mini" bindtap="randomName"> 随机起名 </button>
   </view>
-
-  <button type="primary" bindtap="randomName"> 随机起名 </button>
-
-  <!-- <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view> -->
 </view>
-
-
 <!-- <text qq:for="{{nameArray}}">
  {{item}}
 </text> -->
+<view style="margin-top:20px"/>
+
+<radio-group class="radio-group" bindchange="radioChangeSex">
+  性：
+   <label class="radio" qq:for="{{sexItems}}">
+    <radio style="margin-left:10px" value="{{item.value}}" checked="{{item.checked}}" bindtap="sexRadioClick" data-value="{{item.value}}" />
+    {{item.name}}
+  </label>
+</radio-group>
+
+<radio-group class="radio-group" bindchange="radioChangeFirstName" style="margin-top:5px">
+  姓：
+   <label class="radio" qq:for="{{firstNameItems}}">
+    <radio style="margin-left:10px" value="{{item.value}}" checked="{{item.checked}}" bindtap="firstNameRadioClick" data-value="{{item.value}}" />
+    {{item.name}}
+  </label>
+</radio-group>
+
+<radio-group class="radio-group" bindchange="radioChangeLastName" style="margin-top:5px">
+  名：
+  <label class="radio" qq:for="{{lastNameItems}}">
+    <radio style="margin-left:10px" value="{{item.value}}" checked="{{item.checked}}" bindtap="lastNameRadioClick" data-value="{{item.value}}" />
+    {{item.name}}
+  </label>
+</radio-group>
+
+<view style="margin-top:20px"/>
+
 <view>
   <text class="name-txt">{{nameArray[0]}}</text>
   <text class="name-txt">{{nameArray[1]}}</text>
@@ -51,5 +72,10 @@
   <text class="name-txt">{{nameArray[17]}}</text>
   <text class="name-txt">{{nameArray[18]}}</text>
   <text class="name-txt">{{nameArray[19]}}</text>
+</view>
+
+<view class="download-button">
+  <button type="primary" style = "backgroup-color:green" size="mini" bindtap="randomName"> 下载常用姓氏 </button>
+  <button type="primary" size="mini" bindtap="randomName"> 下载常用汉字 </button>
 </view>
 

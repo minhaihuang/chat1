@@ -9,7 +9,46 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: qq.canIUse('button.open-type.getUserInfo'),
-    nameArray: []
+    nameArray: [],
+    sexValue: 0,
+    firstNameValue: 0,
+    lastNameValue: 0,
+    sexItems: [
+      {
+        "name": '男性',
+        "checked": false,
+        "value": 1
+      },
+      {
+        "name": '女性',
+        "checked": false,
+        "value": 2
+      }
+    ],
+    firstNameItems: [
+      {
+        "name": '单姓',
+        "checked": false,
+        "value": 1
+      },
+      {
+        "name": '复性',
+        "checked": false,
+        "value": 2
+      }
+    ],
+    lastNameItems: [
+      {
+        "name": '单字',
+        "checked": false,
+        "value": 1
+      },
+      {
+        "name": '双字',
+        "checked": false,
+        "value": 2
+      }
+    ]
   },
   //事件处理函数
   bindViewTap: function () {
@@ -122,5 +161,85 @@ Page({
         console.log(res)
       }
     })
+  },
+  radioChangeSex: function(e){
+    //  console.log('radio发生change事件，携带value值为：', e.detail.value)
+    //  this.setData({
+    //    sexValue: e.detail.value
+    //  })
+    //  console.log(this.data.sexValue)
+  },
+  sexRadioClick: function(e){
+    console.log(e.currentTarget.dataset.value)
+    console.log(this.data.sexValue == e.currentTarget.dataset.value)
+    console.log(this.data.sexValue)
+    if(this.data.sexValue == e.currentTarget.dataset.value){
+      
+      this.setData({
+        sexItems: [
+              {
+                "name": '男性',
+                "checked": false,
+                "value": 1
+              },
+              {
+                "name": '女性',
+                "checked": false,
+                "value": 2
+              }
+            ],
+        sexValue: 0
+        })
+    }else{
+       this.setData({
+       sexValue: e.currentTarget.dataset.value
+     })
+    }
+  },
+  firstNameRadioClick: function(e){
+    if(this.data.firstNameValue == e.currentTarget.dataset.value){
+      this.setData({
+        firstNameItems: [
+              {
+                "name": '单姓',
+                "checked": false,
+                "value": 1
+              },
+              {
+                "name": '复姓',
+                "checked": false,
+                "value": 2
+              }
+            ],
+        firstNameValue: 0
+        })
+    }else{
+       this.setData({
+       firstNameValue: e.currentTarget.dataset.value
+     })
+    }
+  },
+  lastNameRadioClick: function(e){
+    if(this.data.lastNameValue == e.currentTarget.dataset.value){
+      this.setData({
+        lastNameItems: [
+              {
+                "name": '单字',
+                "checked": false,
+                "value": 1
+              },
+              {
+                "name": '双字',
+                "checked": false,
+                "value": 2
+              }
+            ],
+        lastNameValue: 0
+        })
+    }else{
+       this.setData({
+       lastNameValue: e.currentTarget.dataset.value
+     })
+    }
   }
 })
