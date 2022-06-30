@@ -18,3 +18,7 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.name-txt {
+  margin-left: 20px;
+}

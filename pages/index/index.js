@@ -8,7 +8,8 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: qq.canIUse('button.open-type.getUserInfo')
+    canIUse: qq.canIUse('button.open-type.getUserInfo'),
+    nameArray: []
   },
   //事件处理函数
   bindViewTap: function () {
@@ -51,6 +52,24 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  randomName: function (){
+    qq.request({
+          url: 'http://10.194.132.51:8080/name/random?length=2', // 仅为示例，并非真实的接口地址
+          header: {
+            'content-type': 'text/plain' // 默认值
+          },
+          method: 'get',
+          success: res => {
+            console.log(res)
+             this.setData({
+              nameArray: res.data
+            })
+          },
+          fail(res){
+            console.log(res)
+          }
+        })
   },
   inRoom: function () {
     // appId
